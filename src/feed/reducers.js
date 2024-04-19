@@ -10,7 +10,14 @@ const initialState = {
 const itemSlice = createSlice({
         name: 'items',
         initialState: initialState,
-        reducers: {},
+        reducers: {
+            addPost(state, action) {
+                state.title = action.payload.title;
+                state.content = action.payload.content;
+                state.author = action.payload.author;
+                state.datePosted = action.payload.datePosted;
+            }
+        },
         extraReducers: builder => {
             builder.addCase(findItemsThunk.pending, (state) => {
                 state.loading = true
@@ -29,3 +36,4 @@ const itemSlice = createSlice({
 )
 
 export default itemSlice.reducer;
+export const addPost = itemSlice.actions

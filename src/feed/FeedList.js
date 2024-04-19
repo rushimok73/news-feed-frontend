@@ -16,12 +16,18 @@ const FeedList = () => {
     return (
 
         <div>
+            <div className="position-fixed bg-white z-1 mt" style={{ top: 0, width: '100%' }}>
+                <h3 className="mt-2">Your Feed</h3>
+                <hr className="m-0"/>
+            </div>
+
             {
                 loading &&
                 <li className="list-group-item">
                     Loading...
                 </li>
             }
+            <ul className="list-group z-0" style={{ marginTop: '70px' }}>
             {
                 items.map(item =>
                     <FeedItem
@@ -29,6 +35,7 @@ const FeedList = () => {
                         item={item}/>
                 )
             }
+            </ul>
         </div>
     );
 }
